@@ -14,7 +14,7 @@ class AmrNode(object):
 
 
 class AmrEdge(object):
-    def __init__(self, node1=None, node2=None, relation=None):
+    def __init__(self, node1=AmrNode(), node2=AmrNode(), relation=None):
         self.node1 = node1
         self.node2 = node2
         self.relation = relation
@@ -30,8 +30,11 @@ class AmrGraph(object):
     
     def getNodes(self, tokens):
         """
-        obtain a set of nodes from an AMR graph.
-        each node represents a concept.
+        Obtains a set of nodes from an AMR graph.
+                
+        Returns:
+            A list of nodes of type AmrNode, each node represents a concept.
+            
         """
         nodes, curr_idx = self._getNodesIter(None, tokens[:], 0) # copy tokens
         assert curr_idx == len(tokens)
@@ -39,8 +42,10 @@ class AmrGraph(object):
     
     def getEdges(self, tokens):
         """
-        obtain a set of edges from an AMR graph.
-        each edge connects two concepts.
+        Obtains a set of edges from an AMR graph.
+
+        Returns:
+            A list of edges of type AmrEdge, each edge connects two concepts.
         """
         # get nodes
         nodes = self.getNodes(tokens)
