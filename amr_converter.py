@@ -34,7 +34,6 @@ class AmrGraph(object):
                 
         Returns:
             A list of nodes of type AmrNode, each node represents a concept.
-            
         """
         nodes, curr_idx = self._getNodesIter(None, tokens[:], 0) # copy tokens
         assert curr_idx == len(tokens)
@@ -80,7 +79,7 @@ class AmrGraph(object):
 
     def _flatten(self, curr_list):
         """
-        _flatten arbitrarily nested list
+        flatten arbitrarily nested list
         """
         for i in curr_list:
             if isinstance(i, list) or isinstance(i, tuple):
