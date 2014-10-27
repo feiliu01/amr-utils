@@ -4,7 +4,7 @@ amr-utils
 A collection of convenience functions for handling AMR (Abstract Meaning Representation) graphs.
 
 
-	1. A converter from an AMR graph to a list of nodes and edges
+A converter from an AMR graph to a list of nodes and edges
 ===============================================================
 
 Input: an AMR graph
@@ -26,7 +26,7 @@ Input: an AMR graph
 Output: a list of nodes and edges
 ---------------------------------
 
-Nodes:
+Nodes (see [AmrNode]):
 
 	0 s schedule-01
 	0.0 p project
@@ -35,7 +35,7 @@ Nodes:
 	0.1 c complete-01
 	0.2 d2 date-entity
 
-Edges:
+Edges (see [AmrEdge]):
 	
 	s (ARG1)-> p
 	p (mod)-> m
