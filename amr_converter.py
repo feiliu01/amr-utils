@@ -69,7 +69,7 @@ class AmrGraph(object):
                 edge.node1.concept = node.concept
             
             # process node2, add graph_idx, concept
-            curr_short_hnd = edge.node2.graph_idx
+            curr_short_hnd = edge.node2.short_hnd
             if curr_short_hnd in node_indices:
                 node = node_indices[curr_short_hnd]
                 edge.node2.graph_idx = node.graph_idx
