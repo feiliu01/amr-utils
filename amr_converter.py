@@ -59,22 +59,16 @@ class AmrGraph(object):
         edges, curr_idx = self._getEdgesIter(None, tokens[:], 0, node_indices) # copy tokens
         assert curr_idx == len(tokens)-1 or curr_idx == len(tokens)
         
-        # enhance edges with node information
+        # share nodes across edges
         for edge in edges:
-            # process node1, add graph_idx, concept
             curr_short_hnd = edge.node1.short_hnd
             if curr_short_hnd in node_indices:
-                node = node_indices[curr_short_hnd]
-                edge.node1.graph_idx = node.graph_idx
-                edge.node1.concept = node.concept
+                edge.node1 = node_indices[curr_short_hnd]
             
-            # process node2, add graph_idx, concept
             curr_short_hnd = edge.node2.short_hnd
             if curr_short_hnd in node_indices:
-                node = node_indices[curr_short_hnd]
-                edge.node2.graph_idx = node.graph_idx
-                edge.node2.concept = node.concept
-        
+                edge.node2 = node_indices[curr_short_hnd]
+
         return edges
 
     def _flatten(self, curr_list):
